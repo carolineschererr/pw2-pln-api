@@ -18,7 +18,7 @@ public interface BackendLogin {
     @GET
     @Path("/login/{username}")
     @Produces(MediaType.TEXT_PLAIN)
-    @RolesAllowed({ "Admin" })
+    @RolesAllowed({ "Admin", "User" })
     public String login(@PathParam("username") String username);
 
 }
