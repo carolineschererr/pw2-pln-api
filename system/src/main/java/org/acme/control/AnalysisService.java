@@ -42,13 +42,10 @@ public class AnalysisService {
     @RolesAllowed({ "Admin" })
     @Transactional
     public List<Analysis> list() {
-        // 3 - O método `listAll` recupera todos os objetos da classe User.
-        return Analysis.listAll();
-        
+        return Analysis.listAll();  
     }
     
-    //exclui uma análise. Como as análises são atreladas aos usuários, não funciona realmente
-    // a ideia inicial não era de que análises pudessem ser excluídas
+    //exclui uma análise
     // requer Admin
     @GET
     @Path("/delete/{idAnalysis}")
