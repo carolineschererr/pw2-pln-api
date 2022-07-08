@@ -27,7 +27,7 @@ public class AnalysisService {
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "Admin", "User" })
+    @RolesAllowed({ "User" })
     public void addAnalysis(@RequestBody CreateAnalysis analysis){
         Analysis nAnalysis = new Analysis();
         nAnalysis.setText(analysis.getText());
@@ -52,7 +52,7 @@ public class AnalysisService {
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed({ "Admin" })
     @Transactional
-    public void delete(@PathParam("idAnalysis") Long idAnalysis){
+    public void deleteAnalysis(@PathParam("idAnalysis") Long idAnalysis){
         Analysis analysis = Analysis.findById(idAnalysis);
         if (analysis == null)
             throw new BadRequestException("Analysis not found.");
