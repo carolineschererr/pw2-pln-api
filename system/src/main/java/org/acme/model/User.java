@@ -31,7 +31,7 @@ public class User extends PanacheEntityBase {
 		name = "UserSeq",
 		sequenceName = "user_id_seq",	
 		allocationSize = 1,
-		initialValue = 1000)
+		initialValue = 100)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSeq")
 	public Long id;
 	
