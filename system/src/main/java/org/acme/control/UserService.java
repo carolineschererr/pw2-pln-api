@@ -49,6 +49,7 @@ public class UserService {
     @Path("/list_all")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
+    @RolesAllowed({ "Admin" })
     public List<User> listUser() {
         return User.listAll(); 
     }
@@ -58,6 +59,7 @@ public class UserService {
     @Path("/list/user_analysis/{idUser}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
+    @RolesAllowed({ "Admin" })
     public Set<Analysis> listAnalysis(@PathParam("idUser") Long idUser) {
         User nUser = User.findById(idUser);
         if (nUser == null)
@@ -70,6 +72,7 @@ public class UserService {
     @GET
     @Path("/delete/{idUser}")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({ "Admin" })
     public void delete(@PathParam("idUser") Long idUser){
         User nUser = User.findById(idUser);
         if (nUser == null)
@@ -94,7 +97,7 @@ public class UserService {
     @Path("/login/{username}/{password}")
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed({ "User" })
-    public String loginPac(@PathParam("username") String username, @PathParam("password") String password){
+    public String loginUser(@PathParam("username") String username, @PathParam("password") String password){
         if(User.findByCredentials(username, password).isEmpty() == false){
             LOGGER.log(Level.INFO, "LoginUser: {0}", fullName);
             return backend.login(username);
