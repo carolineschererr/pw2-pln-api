@@ -23,7 +23,7 @@ public class JWT {
     @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String getJWTA(@FormParam("username") String username, @FormParam("email") String email){ //ver se tem um claims senha
+    public String getJWTA(@FormParam("username") String username, @FormParam("email") String email){
   
         return Jwt.issuer("https://localhost:8443")
             .upn(email)
@@ -38,12 +38,12 @@ public class JWT {
     @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String getJWTP(@FormParam("username") String username, @FormParam("email") String email){ //ver se tem um claims senha
+    public String getJWTP(@FormParam("username") String username, @FormParam("email") String email){
 
         return Jwt.issuer("https://localhost:8443")
             .upn(email)
             .groups(new HashSet<>(Arrays.asList("User")))
-            .claim(Claims.full_name, name)
+            .claim(Claims.full_name, username)
             .claim(Claims.email, email)
             .sign();
     }
