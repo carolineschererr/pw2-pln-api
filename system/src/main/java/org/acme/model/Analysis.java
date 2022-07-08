@@ -26,7 +26,7 @@ public class Analysis extends PanacheEntityBase {
 		name = "AnalysisSeq",
 		sequenceName = "analysis_id_seq",	
 		allocationSize = 1,
-		initialValue = 3000)
+		initialValue = 5000)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "analysisSeq")
 	public Long id;
 
