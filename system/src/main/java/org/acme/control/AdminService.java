@@ -38,6 +38,7 @@ public class AdminService {
         Admin adm = new Admin();
         adm.setUsername(admin.getUsername());
         adm.setPassword(admin.getPassword());
+        adm.setEmail(admin.getEmail());
         adm.persist();
     }
     
@@ -68,7 +69,7 @@ public class AdminService {
     @Path("/login/{username}/{password}")
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed({ "Admin" })
-    public String loginPac(@PathParam("username") String username, @PathParam("password") String password){
+    public String loginAdmin(@PathParam("username") String username, @PathParam("password") String password){
         if(Admin.findByCredentials(username, password).isEmpty() == false){
             LOGGER.log(Level.INFO, "LoginAdmin: {0}", fullName);
             return backend.login(username);
