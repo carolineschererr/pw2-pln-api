@@ -16,7 +16,7 @@ import io.quarkus.oidc.token.propagation.AccessToken;
 public interface BackendLogin {
 
     @GET
-    @Path("/login/{nome}")
+    @Path("/login/{username}")
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed({ "Admin" })
     public String login(@PathParam("username") String username);
