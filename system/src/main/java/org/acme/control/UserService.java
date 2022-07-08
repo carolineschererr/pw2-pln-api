@@ -33,7 +33,6 @@ public class UserService {
     @POST
     @Path("/create_account")
     @Consumes(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "Admin" })
     public void addUser(@RequestBody CreateUser user){
         User nUser = new User();
         nUser.setUsername(user.getUsername());
@@ -51,7 +50,6 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public List<User> listUser() {
-        // 3 - O método `listAll` recupera todos os objetos da classe User.
         return User.listAll(); 
     }
     
