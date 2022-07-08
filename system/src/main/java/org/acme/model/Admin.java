@@ -27,6 +27,8 @@ public class Admin extends PanacheEntityBase {
 
     private String username;
     private String password;
+	private String email;
+
 
     //construtores
     public Admin(){}
@@ -34,6 +36,7 @@ public class Admin extends PanacheEntityBase {
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
+	    this.email = email;
     }
 
     // lista os objetos Admin da classe
